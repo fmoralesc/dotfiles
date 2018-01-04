@@ -1,0 +1,2 @@
+paper|pdf -H ~/Documents/Papers/current/logic.header --pdf-engine pdflatex --pdf-engine-opt=--shell-escape -Vpapersize=a4 -Vfontsize=11pt
+synthese|latex --template ~/Documents/Papers/current/synthese.latex --pdf-engine pdflatex --csl ~/Documents/Papers/current/synthese.csl --natbib
