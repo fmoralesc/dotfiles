@@ -17,7 +17,6 @@ Plug 'vimoutliner/vimoutliner'
 " Devel: {{{3
 let g:plug_url_format = 'git@github.com:%s.git'
 Plug 'vim-pandoc/vim-pandoc'
-"let g:pandoc#compiler#command = 'panzer'
 Plug 'vim-pandoc/vim-pandoc-after'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 "Plug 'vim-pandoc/vim-bibliographer'
@@ -96,6 +95,7 @@ let g:pymode_options_colorcolumn = 0
 "let g:pad#search_backend = 'rg'
 
 " vim-pandoc: {{{3
+let g:pandoc#compiler#command = 'panzer'
 let g:pandoc#formatting#mode = "hA"
 let g:pandoc#formatting#smart_autoformat_on_cursormoved = 1
 let g:pandoc#folding#level = 2
@@ -109,7 +109,7 @@ noremap <leader>nn :NR<CR>
 " deoplete {{{3
 let g:deoplete#enable_at_startup = 1
 "}}}1
-"
+
 " UI: {{{1
 " Theme: {{{2
 set co=130 lines=40
