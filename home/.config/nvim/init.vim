@@ -75,13 +75,7 @@ call plug#end()
 
 " Options: {{{2
 " fzf: {{{3
-if !has('nvim')
-    nnoremap <f25> :silent! :<C-u>History<CR>
-    nnoremap <C-ñ> :silent :<C-u>Lines<cr>
-else
-    nnoremap <f25> :silent! :<C-u>History<cr>
-    nnoremap <F26> :silent! :<C-u>Lines<cr>
-endif
+nnoremap <f25> :silent! :<C-u>History<cr>
 nnoremap <C-p> :silent :<C-u>Files<CR>
 
 let g:sneak#streak = 1
