@@ -78,8 +78,6 @@ call plug#end()
 nnoremap <f25> :silent! :<C-u>History<cr>
 nnoremap <C-p> :silent :<C-u>Files<CR>
 
-let g:sneak#streak = 1
-
 " pymode {{{3
 let g:pymode_lint = 0
 let g:pymode_options_colorcolumn = 0
