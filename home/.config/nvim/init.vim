@@ -19,11 +19,7 @@ let g:plug_url_format = 'git@github.com:%s.git'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-after'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-"Plug 'vim-pandoc/vim-bibliographer'
-"Plug 'git@github.com:fmoralesc/vim-beyul.git'
-"Plug 'git@github.com:fmoralesc/vim-tutor-mode.git'
-"Plug 'git@github.com:vim-pandoc/vim-criticmarkup.git'
-"Plug '~/.vim/plugged/vim-commonmark'
+Plug 'fmoralesc/vim-bibliographer'
 unlet g:plug_url_format
 
 " Utilities: {{{2
@@ -31,11 +27,7 @@ unlet g:plug_url_format
 let g:plug_url_format = 'git@github.com:%s.git'
 Plug 'fmoralesc/worldslice'
 Plug 'fmoralesc/vim-extended-autochdir'
-"Plug 'fmoralesc/vim-pad', {'branch': 'devel'}
 Plug 'fmoralesc/nlanguagetool'
-"Plug 'fmoralesc/nvim-logic'
-"Plug 'fmoralesc/nvimfs'
-"Plug 'fmoralesc/vim-autogit'
 unlet g:plug_url_format
 " Essential {{{3
 Plug 'tpope/vim-vinegar'
@@ -53,24 +45,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'dahu/vim-fanfingtastic'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
-"Plug 'mhinz/vim-grepper'
-"Plug 'benekastah/neomake'
-"Plug 'kana/vim-smartword'
-"Plug 'ludovicchabant/vim-gutentags'
-"Plug 'justinmk/vim-sneak'
-"Plug 'simnalamburt/vim-mundo'
-"Plug 'junegunn/vim-easy-align'
 
 " Colorschemes: {{{2
 Plug 'chriskempson/base16-vim'
-"Plug 'sjl/badwolf'
-"Plug 'morhetz/gruvbox'
-" Devel {{{3
-"Plug 'tomasr/molokai' | Plug 'fmoralesc/molokayo'
-"Plug 'git@github.com:plan9-for-vimspace/acme-colors.git'
-"}}}2
 call plug#end()
 
 " Options: {{{2
