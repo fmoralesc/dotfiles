@@ -65,6 +65,7 @@ let g:pymode_options_colorcolumn = 0
 
 " vim-pandoc: {{{3
 let g:pandoc#compiler#command = 'panzer'
+let g:pandoc#command#prefer_pdf = 1
 let g:pandoc#formatting#mode = "hA"
 let g:pandoc#formatting#smart_autoformat_on_cursormoved = 1
 let g:pandoc#folding#level = 2
