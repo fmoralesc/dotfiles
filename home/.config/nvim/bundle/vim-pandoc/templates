@@ -1,2 +1,2 @@
-paper|pdf -H ~/Documents/Papers/current/logic.header --pdf-engine pdflatex --pdf-engine-opt=--shell-escape -Vpapersize=a4 -Vfontsize=11pt --number-sections
+paper|pdf -H ~/Documents/Papers/current/logic.header --pdf-engine pdflatex --pdf-engine-opt=--shell-escape -Vpapersize=a4 -Vfontsize=11pt --number-sections -Vindent
 synthese|latex --template ~/Documents/Papers/current/synthese.latex --natbib --metadata=style:ltx2pdf
