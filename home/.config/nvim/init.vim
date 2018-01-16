@@ -31,6 +31,7 @@ Plug 'fmoralesc/nlanguagetool'
 unlet g:plug_url_format
 " Essential {{{3
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
@@ -40,6 +41,8 @@ Plug 'justinmk/vim-gtfo'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/neco-vim'
 Plug 'tpope/vim-fugitive'
 " others: {{{3
 Plug 'chrisbra/NrrwRgn'
