@@ -1,0 +1,65 @@
+\documentclass[11pt,twocolumn]{article}
+\usepackage[a4paper,layout=a4paper,hmargin=2cm,top=0cm,bottom=2cm]{geometry}
+\pagenumbering{gobble}
+
+\usepackage{adobecaslon}
+\usepackage{newtxmath}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{textcomp} % provides euro and other symbols
+\usepackage{amssymb,amsmath}
+\usepackage{fm-logic}
+
+\usepackage{microtype}
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+$if(title-meta)$
+            pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+            pdfauthor={$author-meta$},
+$endif$
+$if(keywords)$
+            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+            colorlinks=false,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{booktabs}
+\usepackage{graphicx,grffile}
+
+\usepackage{enumitem}
+\setlist[enumerate]{noitemsep,topsep=2pt}
+\setlist[itemize]{noitemsep,topsep=2pt}
+\providecommand{\tightlist}{%
+ \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[english]{babel}
+
+$if(title)$
+\title{$title$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+\date{$date$}
+
+\begin{document}
+$if(title)$
+    \maketitle
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}

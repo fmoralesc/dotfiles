@@ -1,0 +1,54 @@
+\documentclass[11pt]{beamer}
+\usetheme{kuleuven2}
+
+\usepackage[sfdefault,scaled=.85]{FiraSans}
+\usepackage{newtxsf}
+\usefonttheme[onlymath]{serif}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{textcomp} % provides euro and other symbols
+\usepackage{amssymb,amsmath}
+\usepackage{fm-logic}
+
+\usepackage{microtype}
+\usepackage{hyperref}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{booktabs}
+\usepackage{graphicx,grffile}
+
+\providecommand{\tightlist}{%
+ \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[english]{babel}
+
+$if(title)$
+\title{$title$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+\institute{KU Leuven}
+\date{$date$}
+
+\begin{document}
+\csname beamer@calculateheadfoot\endcsname
+
+$if(title)$
+\begin{frame}[plain,noframenumbering]
+    \titlepage
+\end{frame}
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
