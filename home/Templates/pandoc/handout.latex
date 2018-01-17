@@ -1,5 +1,5 @@
 \documentclass[11pt,twocolumn]{article}
-\usepackage[a4paper,layout=a4paper,hmargin=2cm,top=0cm,bottom=2cm]{geometry}
+\usepackage[a4paper,layout=a4paper,hmargin=2cm,top=1cm,bottom=2cm,columnsep=0.5cm]{geometry}
 \pagenumbering{gobble}
 
 \usepackage{adobecaslon}

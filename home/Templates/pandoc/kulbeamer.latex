@@ -18,8 +18,9 @@
 \usepackage{booktabs}
 \usepackage{graphicx,grffile}
 
-\providecommand{\tightlist}{%
- \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\tightlist}{}
+\setbeamersize{description width=3cm}
+
 \usepackage[english]{babel}
 
 $if(title)$
