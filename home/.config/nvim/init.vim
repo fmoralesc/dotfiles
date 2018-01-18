@@ -244,4 +244,7 @@ nnoremap <C-s>x ]s
 nnoremap <C-s>z [s
 " Goto prev mispelling
 
-
+" common blunders {{{2
+augroup vim_blunders
+au! FileType vim iabbrev PLug Plug
+augroup END
