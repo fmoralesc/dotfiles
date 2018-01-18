@@ -43,7 +43,7 @@ Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
-Plug 'tpope/vim-fugitive'
+Plug 'lambdalisue/gina.vim'
 " others: {{{3
 Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
@@ -175,7 +175,7 @@ let g:worldslice#config = [
 	    \ '+(:)', ["%{expand('%:h')!=''? StatusDir(): ''}", 'Directory'],
 	    \ ["%{expand('%:h')!=''? expand('%:t'): '[unnamed]'}", 'Identifier'],
 	    \ ['%m%r', 'Boolean'],
-	    \ ["%{fugitive#head()!=''? '@': ''}", 'Delimiter'], ['%{fugitive#head()}', 'VCS'],
+	    \ ["%{gina#component#repo#name()!=''? '@': ''}", 'Delimiter'], ['%{gina#component#repo#branch()}[%{gina#component#status#preset()}]', 'VCS'],
 	    \ ' ', ['%{StatusOtherBuffers()}', 'Character'],
 	    \ ' %=\',
 	    \ ["%{&ft=='pandoc'?wordcount().words.':':''}"],
