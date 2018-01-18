@@ -44,6 +44,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
 Plug 'lambdalisue/gina.vim'
+Plug 'jreybert/vimagit'
 " others: {{{3
 Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
