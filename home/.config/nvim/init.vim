@@ -55,7 +55,7 @@ call plug#end()
 
 " Options: {{{2
 " fzf: {{{3
-nnoremap <f25> :silent! :<C-u>History<cr>
+nnoremap <C-f1> :silent! :<C-u>History<cr>
 nnoremap <C-p> :silent :<C-u>Files<CR>
 
 " pymode {{{3
