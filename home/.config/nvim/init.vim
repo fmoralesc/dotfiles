@@ -43,7 +43,6 @@ Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
-Plug 'lambdalisue/gina.vim'
 Plug 'jreybert/vimagit'
 " others: {{{3
 Plug 'chrisbra/NrrwRgn'
