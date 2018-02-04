@@ -1,4 +1,4 @@
 handout|pdf --template ~/Templates/pandoc/handout.latex
 kulbeamer|beamer --template ~/Templates/pandoc/kulbeamer.latex
 paper|pdf -H ~/Templates/pandoc/logic.header --pdf-engine pdflatex --pdf-engine-opt=--shell-escape -Vpapersize=a4 -Vfontsize=11pt --number-sections -Vindent
-synthese|latex --template ~/Template/pandoc/synthese.latex --natbib --metadata=style:ltx2pdf
+synthese|latex --template ~/Templates/pandoc/synthese.latex --natbib --metadata=style:ltx2pdf
