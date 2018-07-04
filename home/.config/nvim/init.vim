@@ -100,6 +100,7 @@ au Colorscheme * hi! link FoldColumn EndOfBuffer
 au Colorscheme * hi! EndOfBuffer guifg=#383838
 au Colorscheme * hi! link VertSplit NonText
 colorscheme base16-darktooth
+hi! Normal guibg=#1a1a1a
 hi! Cursor guibg=#f92672 guifg=#ffffff gui=bold cterm=bold ctermbg=197 ctermfg=15
 hi! CursorInsert guibg=#0077ff guifg=#ffffff ctermbg=39  ctermfg=15
 hi! CursorVisual guibg=#2077ff guifg=#ffffff ctermbg=38 ctermfg=15
@@ -113,6 +114,8 @@ set guicursor=
 	    \c:ver25-blinkon300-CursorInsert
 "}}}2
 " Elements: {{{2
+" no eol tildes
+set fcs+=eob:\ 
 " No initial message
 set shortmess+=I
 " No toolbars or scrollbars
@@ -167,7 +170,7 @@ function! StatusOtherBuffers()
 endfunction
 
 function! PWD()
-    return fnamemodify(getcwd(), ":~")
+    return pathshorten(fnamemodify(getcwd(), ":~"))
 endfunction
 
 let g:worldslice#config = [
