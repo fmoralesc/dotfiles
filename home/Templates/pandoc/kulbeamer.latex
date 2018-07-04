@@ -10,13 +10,13 @@
 \usepackage{fixltx2e} % provides \textsubscript
 \usepackage{textcomp} % provides euro and other symbols
 \usepackage{amssymb,amsmath}
-\usepackage{fm-logic}
+\usepackage{attrib}
 
 \usepackage{microtype}
 \usepackage{hyperref}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{booktabs}
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 
 \providecommand{\tightlist}{}
 \setbeamersize{description width=3cm}

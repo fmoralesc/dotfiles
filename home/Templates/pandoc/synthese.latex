@@ -6,31 +6,25 @@
 
 \usepackage{mathptmx}
 
-%\usepackage{newtxtext}
-%\usepackage{newtxmath}
-
 \usepackage{amsmath}
 \usepackage{amssymb}
 
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\tightlist}{}
+\usepackage{enumitem}
+\setlist[description]{style=nextline}
 
 \usepackage{hyperref}
 \hypersetup{
-    pdftitle={$title-meta$},
-    pdfauthor={$author-meta$},
     breaklinks=true,
-    hidelinks=true}
+    hidelinks
+}
 
 \title{$title$}
 \author{$author$}
 \date{$date$}
-\institute{HIW KU Leuven, Kardinaal Mercierplein 2 - bus 3200, BE-3000 Leuven
-\\\email{felipeandres.moralescarbonell@kuleuven.be}}
 
 \usepackage{natbib}
-\bibliographystyle{agsm}
-%\bibliographystyle{apalike}
+\bibliographystyle{spbasic}
 
 \begin{document}
 \maketitle
