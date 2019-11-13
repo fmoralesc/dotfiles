@@ -1,0 +1,107 @@
+% vim: set ft=tex :
+\documentclass[12pt]{article}
+\usepackage[a4paper,layout=a4paper]{geometry}
+\usepackage{microtype}
+\usepackage[semibold,type1]{libertine}
+\usepackage{libertinust1math}
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\strictif}{\mathrel}{symbolsC}{74}
+\DeclareMathSymbol{\boxright}{\mathrel}{symbolsC}{128}
+\DeclareMathSymbol{\boxRight}{\mathrel}{symbolsC}{136} % Lewis’s stronger ‘would’ counterfactual
+\DeclareMathSymbol{\diamondRight}{\mathrel}{symbolsC}{140} % Lewis’s stronger ‘might’ counterfactual
+\DeclareMathSymbol{\diamonddot}{\mathord}{symbolsC}{144} % Lewis’s inner necessity\usepackage[T1]{fontenc}
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{textcomp} % provides euro and other symbols
+\usepackage{titlesec}
+\titleformat*{\section}{\large\fontseries{b}\selectfont}
+\titleformat*{\subsection}{\normalsize\fontseries{b}\selectfont\itshape}
+\titleformat*{\subsubsection}{\normalsize\itshape}
+
+\usepackage{amssymb,amsmath}
+\usepackage{syntax}
+\usepackage{bussproofs}
+\usepackage[tableaux]{prooftrees}
+\usepackage[bordercolor=red,backgroundcolor=red!25,linecolor=red,textsize=small]{todonotes}
+\usepackage{fnpct}
+\usepackage{pgfmath}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{tikz-network}
+\usepackage{float}
+\floatplacement{figure}{H}
+\usepackage{subcaption}
+
+\usepackage[$if(final)$final$endif$]{pdfcomment}
+
+\usepackage{attrib}
+\usepackage{epigraph}
+\renewcommand{\epigraphsize}{\small}
+\setlength{\epigraphrule}{0pt}
+
+\usepackage{hyperref}
+\hypersetup{
+$if(title-meta)$
+            pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+            pdfauthor={$author-meta$},
+$endif$
+$if(keywords)$
+            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+            colorlinks=true,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{booktabs}
+\usepackage{graphicx,grffile}
+
+\usepackage{enumitem}
+\setlist[description]{style=nextline}
+\setlist[enumerate]{noitemsep,topsep=1pt}
+\setlist[itemize]{noitemsep,topsep=1pt}
+\providecommand{\tightlist}{%
+ \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[english]{babel}
+
+\providecommand{\keywords}[1]{\textbf{Keywords:} #1}
+
+$if(title)$
+\title{$title$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+\date{$date$}
+
+\begin{document}
+$if(title)$
+    \maketitle
+$endif$
+
+$if(abstract)$
+\begin{abstract}
+	$abstract$
+
+	$if(keywords)$
+	\keywords{$keywords$}
+	$endif$
+\end{abstract}
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+
+\end{document}
