@@ -1,5 +1,9 @@
 " vim: set fdm=marker :
 
+let $SUDO_ASKPASS = '/usr/share/git-cola/bin/ssh-askpass'
+
+let $PATH .= ':~/.local/bin'
+
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -11,9 +15,10 @@ call plug#begin('~/.config/nvim/bundle')
 " Filetypes: {{{2
 " Essential: {{{3
 Plug 'dag/vim-fish'
-Plug 'klen/python-mode'
+Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'vim-latex/vim-latex'
 Plug 'vimoutliner/vimoutliner'
+Plug 'leanprover/lean.vim'
 " Devel: {{{3
 let g:plug_url_format = 'git@github.com:%s.git'
 Plug 'vim-pandoc/vim-pandoc'
@@ -37,18 +42,19 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tweekmonster/wstrip.vim'
 Plug 'justinmk/vim-gtfo'
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
-Plug 'Shougo/deoplete.nvim'
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/neco-vim'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'lambdalisue/gina.vim'
-Plug 'jreybert/vimagit'
+
 " others: {{{3
 Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'dahu/vim-fanfingtastic'
+"Plug 'brennier/quicktex'
+Plug 'Konfekt/FastFold'
 
 " Colorschemes: {{{2
 Plug 'chriskempson/base16-vim'
@@ -56,25 +62,24 @@ call plug#end()
 
 " Options: {{{2
 " fzf: {{{3
-nnoremap <C-f1> :silent! :<C-u>History<cr>
+nnoremap <F25> :silent! :<C-u>History<cr>
 nnoremap <C-p> :silent :<C-u>Files<CR>
 
 " pymode {{{3
-let g:pymode_lint = 0
-let g:pymode_options_colorcolumn = 0
-
-" vim-pad {{{3
-"let g:pad#dir = '~/Documents/Notas'
-"let g:pad#search_backend = 'rg'
+let g:pymode = 1
+let g:pymode_options = 1
+let g:pymode_rope = 0
 
 " vim-pandoc: {{{3
-let g:pandoc#compiler#command = 'panzer'
+let g:pandoc#command#use_terminal = 1
+let g:pandoc#command#latex_engine = 'latexmk'
 let g:pandoc#command#prefer_pdf = 1
 let g:pandoc#formatting#mode = "hA"
 let g:pandoc#formatting#smart_autoformat_on_cursormoved = 1
 let g:pandoc#folding#level = 2
 let g:pandoc#folding#mode = "relative"
-let g:pandoc#after#modules#enabled = ["nrrwrgn", "tablemode", "ultisnips", "deoplete"]
+let g:pandoc#folding#fold_yaml = 1
+let g:pandoc#after#modules#enabled = ["nrrwrgn"]
 let g:pandoc#completion#bib#mode = 'citeproc'
 let g:pandoc#syntax#newlines = 0
 
@@ -82,6 +87,27 @@ let g:pandoc#syntax#newlines = 0
 noremap <leader>nn :NR<CR>
 " deoplete {{{3
 let g:deoplete#enable_at_startup = 1
+
+"nvim's lsp: {{{3
+call lsp#add_filetype_config({
+			\ 'filetype': 'python',
+			\ 'name': 'pyls',
+			\ 'cmd': 'pyls'
+			\})
+
+call lsp#add_filetype_config({
+			\ 'filetype': 'tex',
+			\ 'name': 'texlab',
+			\ 'cmd': 'texlab'
+			\})
+
+autocmd Filetype python,tex setl omnifunc=lsp#omnifunc
+nnoremap <silent> ;dc :call lsp#text_document_declaration()<CR>
+nnoremap <silent> ;df :call lsp#text_document_definition()<CR>
+nnoremap <silent> ;h  :call lsp#text_document_hover()<CR>
+nnoremap <silent> ;i  :call lsp#text_document_implementation()<CR>
+nnoremap <silent> ;s  :call lsp#text_document_signature_help()<CR>
+nnoremap <silent> ;td :call lsp#text_document_type_definition()<CR>
 "}}}1
 
 " UI: {{{1
@@ -97,14 +123,16 @@ au Colorscheme * hi! link TabLineSel SLIdentifier
 au Colorscheme * hi! link TabLine StatusLine
 au Colorscheme * hi! link TabLineFill StatusLine
 au Colorscheme * hi! link FoldColumn EndOfBuffer
-au Colorscheme * hi! EndOfBuffer guifg=#383838
 au Colorscheme * hi! link VertSplit NonText
-colorscheme base16-darktooth
+colorscheme base16-atelier-forest
 hi! Normal guibg=#1a1a1a
+hi! link CursorLine Error
 hi! Cursor guibg=#f92672 guifg=#ffffff gui=bold cterm=bold ctermbg=197 ctermfg=15
 hi! CursorInsert guibg=#0077ff guifg=#ffffff ctermbg=39  ctermfg=15
 hi! CursorVisual guibg=#2077ff guifg=#ffffff ctermbg=38 ctermfg=15
 hi! CursorReplace guibg=#ff2000 guifg=#ffffff ctermbg=196 ctermfg=15
+hi! ColorColumn guibg=#181818
+
 set guicursor=
 	    \n:block-Cursor,
             \a:block-blinkon0,
@@ -114,14 +142,7 @@ set guicursor=
 	    \c:ver25-blinkon300-CursorInsert
 "}}}2
 " Elements: {{{2
-" no eol tildes
-set fcs+=eob:\ 
-" No initial message
-set shortmess+=I
-" No toolbars or scrollbars
-set guioptions-=T
-set guioptions-=r
-set guioptions-=L
+set signcolumn=auto:4
 " Folding {{{2
 function! NeatFoldText() "
   let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
@@ -210,8 +231,18 @@ set smartcase
 set keymodel=startsel,stopsel
 set viewoptions-=options,folds
 set inccommand=split
+"set completeopt=noinsert,menuone,noselect
 set undofile
-set completeopt-=preview
+set noequalalways
+set pumblend=10
+if &startofline
+" don't reset the cursor upon returning to a buffer:
+augroup StayPut
+  au!
+  autocmd BufLeave * set nostartofline | 
+      \ autocmd StayPut CursorMoved,CursorMovedI * set startofline | autocmd! StayPut CursorMoved,CursorMovedI
+augroup END
+endif
 " }}}1
 
 " Commands: {{{1
@@ -225,6 +256,12 @@ command! -nargs=1 Dict call jobstart(['goldendict', '<args>'])
 " Mappings: {{{1
 "
 let g:maplocalleader=",,"
+
+" pum wildmenu
+cnoremap <expr> <Up>    pumvisible() ? "\<Left>"  : "\<Up>"
+cnoremap <expr> <Down>  pumvisible() ? "\<Right>" : "\<Down>"
+cnoremap <expr> <Left>  pumvisible() ? "\<Up>"    : "\<Left>"
+cnoremap <expr> <Right> pumvisible() ? "\<Down>"  : "\<Right>"
 
 " change current dir {{{2
 noremap <leader>cd :cd %:h<CR>
