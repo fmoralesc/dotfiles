@@ -8,10 +8,15 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathrsfs}
 
 \providecommand{\tightlist}{}
 \usepackage{enumitem}
 \setlist[description]{style=nextline}
+
+\usepackage{epigraph}
+\setlength{\epigraphrule}{0pt}
+\usepackage{attrib}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -22,12 +27,22 @@
 \title{$title$}
 \author{$author$}
 \date{$date$}
+\institute{$address$}
 
 \usepackage{natbib}
 \bibliographystyle{spbasic}
 
 \begin{document}
 \maketitle
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+$if(keywords)$
+\keywords{$keywords$}
+$endif$
+\end{abstract}
+$endif$
 
 $body$
 

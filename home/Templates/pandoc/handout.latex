@@ -1,16 +1,21 @@
 \documentclass[11pt,twocolumn]{article}
-\usepackage[a4paper,layout=a4paper,hmargin=2cm,top=1cm,bottom=2cm,columnsep=0.5cm]{geometry}
+\usepackage[a4paper,layout=a4paper,hmargin=1cm,top=1cm,bottom=1cm,columnsep=0.5cm]{geometry}
 \pagenumbering{gobble}
 
-\usepackage{adobecaslon}
-\usepackage{newtxmath}
+\usepackage{microtype}
+%\usepackage[semibold,type1]{libertine}
+%\usepackage{libertinust1math}
+\usepackage{tgtermes}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
 \usepackage{fixltx2e} % provides \textsubscript
 \usepackage{textcomp} % provides euro and other symbols
 \usepackage{amssymb,amsmath}
-\usepackage{fm-logic}
+\usepackage{attrib}
+\usepackage{titlesec}
+\titleformat*{\section}{\normalsize\fontseries{b}\selectfont}
+\titleformat*{\subsection}{\normalsize\fontseries{b}\fontshape{it}\selectfont}
 
 \usepackage{microtype}
 \usepackage[unicode=true]{hyperref}
@@ -30,10 +35,11 @@ $endif$
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{booktabs}
 \usepackage{graphicx,grffile}
+\usepackage[dvipsnames]{xcolor}
 
 \usepackage{enumitem}
-\setlist[enumerate]{noitemsep,topsep=2pt}
-\setlist[itemize]{noitemsep,topsep=2pt}
+\setlist[enumerate]{noitemsep,topsep=0pt}
+\setlist[itemize]{noitemsep,topsep=0pt}
 \providecommand{\tightlist}{%
  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage[english]{babel}

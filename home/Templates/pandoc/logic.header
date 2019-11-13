@@ -1,15 +1,20 @@
 % vim: ft=tex
 \usepackage{microtype}
-\usepackage[T1]{fontenc}
-\usepackage{adobecaslon}
+%\usepackage[T1]{fontenc}
+%\usepackage{librecaslon}
+%\titleformat*{\section}{\large\bfseries}
+%\titleformat*{\subsection}{\normalsize\bfseries}
+%\titleformat*{\subsubsection}{\normalsize\itshape}
 %\usepackage{tgtermes}
 %\usepackage[libertine]{newtxmath}
 \usepackage{attrib}
 \usepackage{syntax}
-\usepackage{fm-logic}
+\usepackage{bussproofs}
+\usepackage[tableaux]{prooftrees}
 \usepackage[bordercolor=red,backgroundcolor=red!25,linecolor=red,textsize=small]{todonotes}
 \usepackage{fnpct}
-\usepackage{pgfmath}
 \usepackage{epigraph}
+\usepackage{tikz}
 \renewcommand{\epigraphsize}{\small}
 \setlength{\epigraphrule}{0pt}
+\usepackage{titlesec}
