@@ -90,6 +90,7 @@ nnoremap <C-p> :silent :<C-u>Files<CR>
 let g:pymode = 1
 let g:pymode_options = 1
 let g:pymode_rope = 0
+let g:pymode_lint_cwindow = 0
 
 " vim-pandoc: {{{3
 let g:pandoc#command#use_terminal = 1
@@ -129,6 +130,7 @@ nnoremap <silent> ;h  :call lsp#text_document_hover()<CR>
 nnoremap <silent> ;i  :call lsp#text_document_implementation()<CR>
 nnoremap <silent> ;s  :call lsp#text_document_signature_help()<CR>
 nnoremap <silent> ;td :call lsp#text_document_type_definition()<CR>
+nnoremap <silent> ;ds :lua vim.lsp.util.show_line_diagnostics()<CR>
 "}}}1
 
 " UI: {{{1
