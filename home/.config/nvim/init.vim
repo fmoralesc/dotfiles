@@ -111,17 +111,24 @@ noremap <leader>nn :NR<CR>
 let g:deoplete#enable_at_startup = 1
 
 "nvim's lsp: {{{3
+try
 call lsp#add_filetype_config({
 			\ 'filetype': 'python',
 			\ 'name': 'pyls',
 			\ 'cmd': 'pyls'
 			\})
+catch /unique/
+endtry
 
+try
 call lsp#add_filetype_config({
 			\ 'filetype': 'tex',
 			\ 'name': 'texlab',
 			\ 'cmd': 'texlab'
 			\})
+
+catch /unique/
+endtry
 
 autocmd Filetype python,tex setl omnifunc=lsp#omnifunc
 nnoremap <silent> ;dc :call lsp#text_document_declaration()<CR>
