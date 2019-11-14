@@ -153,6 +153,9 @@ hi! CursorInsert guibg=#0077ff guifg=#ffffff ctermbg=39  ctermfg=15
 hi! CursorVisual guibg=#2077ff guifg=#ffffff ctermbg=38 ctermfg=15
 hi! CursorReplace guibg=#ff2000 guifg=#ffffff ctermbg=196 ctermfg=15
 hi! ColorColumn guibg=#181818
+hi! link LspDiagnosticsError ErrorMsg
+hi! link LspDiagnosticsWarning WarningMsg
+hi! WarningMsg guifg=#ff8000
 
 set guicursor=
 	    \n:block-Cursor,
