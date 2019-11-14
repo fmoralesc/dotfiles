@@ -62,6 +62,27 @@ call plug#end()
 
 " Options: {{{2
 " fzf: {{{3
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let height = (&lines/5)*3
+  let y = &lines - height - (&lines/5)
+  let x = float2nr((&columns - width) / 2)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': y,
+        \ 'col': x,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
 nnoremap <F25> :silent! :<C-u>History<cr>
 nnoremap <C-p> :silent :<C-u>Files<CR>
 
