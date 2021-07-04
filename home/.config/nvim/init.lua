@@ -85,7 +85,8 @@ OverrideColors = function()
 		TabLineFill = 'StatusLine',
 		FoldColumn = 'EndOfBuffer',
 		VertSplit = 'NonText',
-		CursorLine = 'Error'
+		CursorLine = 'Error',
+		TelescopeBorder = 'SpecialKey',
 	}
 	for key, val in pairs(hg_links) do
 		execute(table.concat({'hi! link', key, val}, ' '))
@@ -208,18 +209,22 @@ require('telescope').setup{
 		},
 		generic_sorter = require'telescope.sorters'.get_fzy_sorter,
 		file_sorter = require'telescope.sorters'.get_fzy_sorter,
-		winblend = 20;
+		winblend = 10;
 		show_line = false;
-		borderchars = {
-			prompt = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
-			results = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
-			preview = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' };
-		};
+	},
+	extensions = {
+		frecency = {
+			workspaces = {
+				["papers"] = "/home/okf/Documents/Papers/current",
+				["vim"]	= fn.stdpath('data')..'/site/pack/packer/start',
+				["sysconf"] = "/etc"
+			}
+		}
 	}
 }
 
 vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>Telescope find_files<cr>', {noremap=true, silent=true})
-vim.api.nvim_set_keymap('n', '<leader><C-p>', '<cmd>Telescope file_browser<cr>', {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', '<C-f>', '<cmd>Telescope file_browser<cr>', {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', '<f25>', '<cmd>Telescope frecency<cr>', {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', '<f26>', '<cmd>Telescope buffers<cr>', {noremap=true, silent=true})
 
