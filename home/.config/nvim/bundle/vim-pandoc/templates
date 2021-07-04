@@ -1,7 +1,8 @@
 slides|beamer -Vtheme=metropolis --pdf-engine xelatex --pdf-engine-opt=--shell-escape -H ~/Templates/pandoc/beamer.header
 handout|pdf --template ~/Templates/pandoc/handout.latex
 kulbeamer|beamer --template ~/Templates/pandoc/kulbeamer.latex --slide-level=2
+paper2tex|latex --template ~/Templates/pandoc/paper.basic -H ~/Templates/pandoc/logic.header -Vpapersize=a4 -Vfontsize=11pt --number-sections -Vindent
+test|--standalone
+paper2|pdf --template ~/Templates/pandoc/paper.basic -H ~/Templates/pandoc/logic.header --pdf-engine pdflatex --pdf-engine-opt=--shell-escape -Vpapersize=a4 -Vfontsize=11pt --number-sections -Vindent
 synthese|latex --template ~/Templates/pandoc/synthese.latex --natbib
 kbeamer|beamer -Vtheme=metropolis --pdf-engine xelatex --pdf-engine-opt=--shell-escape -H ~/Templates/pandoc/beamer.header
-paper2|pdf --template ~/Templates/pandoc/paper.basic -H ~/Templates/pandoc/logic.header --pdf-engine pdflatex --pdf-engine-opt=--shell-escape -Vpapersize=a4 -Vfontsize=11pt --number-sections -Vindent
-paper2tex|latex --template ~/Templates/pandoc/paper.basic -H ~/Templates/pandoc/logic.header -Vpapersize=a4 -Vfontsize=11pt --number-sections -Vindent

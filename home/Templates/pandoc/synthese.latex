@@ -24,6 +24,9 @@
     hidelinks
 }
 
+\usepackage{tikz}
+\usetikzlibrary{cd}
+
 \title{$title$}
 \author{$author$}
 \date{$date$}

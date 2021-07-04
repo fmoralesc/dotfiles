@@ -1,9 +1,11 @@
 % vim: set ft=tex :
-\documentclass[12pt]{article}
+\documentclass[12pt,leqno]{article}
 \usepackage[a4paper,layout=a4paper]{geometry}
 \usepackage{microtype}
+\usepackage[T1]{fontenc}
 \usepackage[semibold,type1]{libertine}
 \usepackage{libertinust1math}
+\usepackage[T1]{tipa}
 \DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
 \DeclareMathSymbol{\strictif}{\mathrel}{symbolsC}{74}
 \DeclareMathSymbol{\boxright}{\mathrel}{symbolsC}{128}
@@ -25,6 +27,7 @@
 \usepackage{fnpct}
 \usepackage{pgfmath}
 \usepackage{tikz}
+\usetikzlibrary{cd}
 \usetikzlibrary{matrix}
 \usetikzlibrary{positioning}
 \usetikzlibrary{patterns}
@@ -33,6 +36,7 @@
 \usepackage{float}
 \floatplacement{figure}{H}
 \usepackage{subcaption}
+\usepackage{multicol}
 
 \usepackage[$if(final)$final$endif$]{pdfcomment}
 
@@ -56,6 +60,7 @@ $endif$
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{graphicx,grffile}
 
@@ -66,6 +71,30 @@ $endif$
 \providecommand{\tightlist}{%
  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage[english]{babel}
+
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc} % for \widthof, \maxof
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\maxof{\widthof{#1}}{\csllabelwidth}}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth}{#1}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+$endif$
 
 \providecommand{\keywords}[1]{\textbf{Keywords:} #1}
 
