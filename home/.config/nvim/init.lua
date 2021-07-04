@@ -32,7 +32,7 @@ require('packer').startup(function()
 	--- ui
 	use 'dstein64/nvim-scrollview'
 	use 'itchyny/lightline.vim'
-	use {'nvim-telescope/telescope.nvim', 
+	use {'nvim-telescope/telescope.nvim',
 		requires = {
 				{'nvim-lua/popup.nvim'},
 				{'nvim-lua/plenary.nvim'}}
@@ -56,16 +56,18 @@ require('packer').startup(function()
 	--}
 	--- utilities
 	use 'neovim/nvim-lspconfig'
-	use 'kabouzeid/nvim-lspinstall'
+	use {'kabouzeid/nvim-lspinstall', opt=true, cmd={'LspInstall'}}
 	use 'justinmk/vim-gtfo'
 	use 'justinmk/vim-dirvish'
 	use 'airblade/vim-rooter'
-	use 'tpope/vim-eunuch'
+	use {'tpope/vim-eunuch', opt=true,
+		cmd = {'Mkdir', 'SudoWrite', 'Move', 'Rename'}
+	}
 	use 'tpope/vim-commentary'
 	use 'ntpeters/vim-better-whitespace'
 	--- helpers
-	use 'rafcamlet/nvim-luapad'
-	use 'tjdevries/colorbuddy.nvim'
+	use {'rafcamlet/nvim-luapad', opt=true, cmd= {'LuaPad'}}
+	use {'tjdevries/colorbuddy.nvim', opt=true}
 end)
 
 --- ui options {{{1
@@ -84,7 +86,7 @@ OverrideColors = function()
 		FoldColumn = 'EndOfBuffer',
 		VertSplit = 'NonText',
 		CursorLine = 'Error'
-	}	
+	}
 	for key, val in pairs(hg_links) do
 		execute(table.concat({'hi! link', key, val}, ' '))
 	end
@@ -147,10 +149,10 @@ function! PWD()
 endfunction
 ]]
 
-g.lightline = {  
+g.lightline = {
 	colorscheme = 'ayu_mirage';
-	active = { 
-		left = { 
+	active = {
+		left = {
 			{ 'mode', 'paste' },
 			{ 'pwd', 'reldir', 'gitbranch', 'readonly', 'filename', 'modified', 'otherbuffers' }
 		},
@@ -231,13 +233,13 @@ local on_attach = function(_client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 	local opts = { noremap=true, silent=true }
-	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', 
+	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD',
 		'<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', 
+	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd',
 		'<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', 
+	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K',
 		'<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', 
+	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi',
 		'<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>',
 		'<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
